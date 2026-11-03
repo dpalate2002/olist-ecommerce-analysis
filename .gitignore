@@ -1,0 +1,20 @@
+# Data is large and licensed by Olist/Kaggle; link to the source instead of committing it
+data/raw/*
+data/clean/*
+!data/raw/.gitkeep
+!data/clean/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Secrets / local config
+.env
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
