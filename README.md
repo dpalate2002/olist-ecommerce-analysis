@@ -1,6 +1,6 @@
 # Olist E-Commerce Sales & Customer Analysis
 
-> **Status:** Phase 1 (Load) ✅ · Phase 2 (Clean & validate) ✅ · Phase 3 (SQL analysis) next
+> **Status:** Phase 1 (Load)  · Phase 2 (Clean & validate) · Phase 3 (SQL analysis) next
 
 <!-- Replace this section in Phase 6 with your one-sentence main finding + dashboard link -->
 
