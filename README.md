@@ -1,12 +1,12 @@
-# Olist E-Commerce Sales & Customer Analysis
+﻿# Olist E-Commerce Sales & Customer Analysis
 
-> **Status:** Phase 1 (Load) complete · Phase 2 (Clean & validate) in progress
+> **Status:** Phase 1 (Load) complete Â· Phase 2 (Clean & validate) in progress
 
 <!-- Replace this section in Phase 6 with your one-sentence main finding + dashboard link -->
 
 ## Problem
 
-Olist is a Brazilian e-commerce marketplace. Acting as an analyst for Olist's leadership, this project uses ~100,000 orders (Sep 2016 – Oct 2018) to answer:
+Olist is a Brazilian e-commerce marketplace. Acting as an analyst for Olist's leadership, this project uses ~100,000 orders (Sep 2016 â€“ Oct 2018) to answer:
 
 1. **Revenue:** How has revenue grown month over month, and which categories and states drive it?
 2. **Customers:** What share of customers buy more than once, and how does retention look by cohort?
@@ -28,7 +28,7 @@ Olist is a Brazilian e-commerce marketplace. Acting as an analyst for Olist's le
 | customers | 99,441 | one customer *per order* (use `customer_unique_id` for real people: 96,096) |
 | products | 32,951 | one product |
 | sellers | 3,095 | one seller |
-| category_translation | 71 | Portuguese → English category |
+| category_translation | 71 | Portuguese â†’ English category |
 | geolocation | 1,000,163 | zip prefix location (many duplicates) |
 
 ## How to reproduce
@@ -37,7 +37,7 @@ Olist is a Brazilian e-commerce marketplace. Acting as an analyst for Olist's le
 
 ```bash
 # 1. Get the code
-git clone https://github.com/<your-username>/olist-ecommerce-analysis.git
+git clone https://github.com/dpalate2002/olist-ecommerce-analysis.git
 cd olist-ecommerce-analysis
 
 # 2. Python environment
@@ -64,14 +64,14 @@ The loader prints a row-count check and exits with an error if any table's count
 ## Repository structure
 
 ```
-├── sql/
-│   └── 01_create_tables.sql      # typed schema: keys, foreign keys, indexes
-├── scripts/
-│   └── load_data.py              # CSV → Postgres loader with row-count check
-├── notebooks/                    # cleaning, validation, statistics (Phase 2, 4)
-├── dashboard/screenshots/        # images for this README (Phase 5)
-├── memo/                         # one-page recommendation memo (Phase 6)
-└── data/                         # git-ignored; raw/ and clean/
+â”œâ”€â”€ sql/
+â”‚   â””â”€â”€ 01_create_tables.sql      # typed schema: keys, foreign keys, indexes
+â”œâ”€â”€ scripts/
+â”‚   â””â”€â”€ load_data.py              # CSV â†’ Postgres loader with row-count check
+â”œâ”€â”€ notebooks/                    # cleaning, validation, statistics (Phase 2, 4)
+â”œâ”€â”€ dashboard/screenshots/        # images for this README (Phase 5)
+â”œâ”€â”€ memo/                         # one-page recommendation memo (Phase 6)
+â””â”€â”€ data/                         # git-ignored; raw/ and clean/
 ```
 
 ## Metric definitions
@@ -80,15 +80,15 @@ The loader prints a row-count check and exits with an error if any table's count
 |---|---|
 | Revenue | Sum of item `price` for delivered orders (freight excluded unless stated) |
 | Order count | Distinct `order_id` with status `delivered` |
-| Average order value (AOV) | Revenue ÷ order count |
+| Average order value (AOV) | Revenue Ã· order count |
 | Unique customers | Distinct `customer_unique_id` |
-| Repeat purchase rate | Customers with 2+ orders ÷ unique customers |
-| Cohort retention | Of customers whose first order was in month M, % who ordered again in month M+1, M+2, … |
-| Delivery time | Delivered timestamp − purchase timestamp, in days |
+| Repeat purchase rate | Customers with 2+ orders Ã· unique customers |
+| Cohort retention | Of customers whose first order was in month M, % who ordered again in month M+1, M+2, â€¦ |
+| Delivery time | Delivered timestamp âˆ’ purchase timestamp, in days |
 | Late delivery | Delivered after the estimated delivery date |
-| Late delivery rate | Late delivered orders ÷ all delivered orders |
-| Average review score | Mean `review_score` (1–5) |
-| Freight share | Freight value ÷ (price + freight value) |
+| Late delivery rate | Late delivered orders Ã· all delivered orders |
+| Average review score | Mean `review_score` (1â€“5) |
+| Freight share | Freight value Ã· (price + freight value) |
 
 ## Data-quality log
 
@@ -101,8 +101,8 @@ Every issue found, how many rows it affects, and what was done about it.
 | 3 | Source column names misspelled (`product_name_lenght`, `product_description_lenght`) | n/a (column names) | Renamed to `_length` at load | `load_data.py` |
 | 4 | Byte-order mark at start of `product_category_name_translation.csv` | n/a (file encoding) | Read with `utf-8-sig` encoding | `load_data.py` |
 | 5 | Two product categories have no English translation (`pc_gamer`, `portateis_cozinha_e_preparadores_de_alimentos`) | *TODO: count* | *TODO* | |
-| … | *Phase 2: missing delivery dates, duplicate reviews, impossible dates, partial months…* | | | |
+| â€¦ | *Phase 2: missing delivery dates, duplicate reviews, impossible dates, partial monthsâ€¦* | | | |
 
 ## Findings
 
-*Coming in Phases 3–6.*
+*Coming in Phases 3â€“6.*
